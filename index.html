@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0ceeca1f1f.js" crossorigin="anonymous"></script>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <div class="wrap">
+        <button id="back"><i class="fa-solid fa-circle-chevron-left"></i></button>
+        <div class="gallery">
+            <div>
+                <img src="images/image-1.png" alt="OOPS!">
+                <img src="images/image-2.png" alt="OOPS!">         
+                <img src="images/image-3.png" alt="OOPS!">
+            </div>
+            <div>
+                <img src="images/image-4.png" alt="OOPS!">
+                <img src="images/image-5.png" alt="OOPS!">
+                <img src="images/image-6.png" alt="OOPS!">
+            </div>
+        </div>
+            <button id="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+    </div>
+
+    <script>
+
+        var scrolling = document.querySelector(".gallery");
+        var back = document.querySelector("#back");
+        var next = document.querySelector("#next");
+
+        scrolling.addEventListener("wheel",(e)=>{
+            e.preventDefault();
+            scrolling.scrollLeft += e.deltaY;
+            scrolling.style.scrollBehavior = "auto";
+        });
+
+        next.addEventListener("click", ()=>{
+            scrolling.style.scrollBehavior = "smooth";
+            scrolling.scrollLeft += 900;
+        });
+
+        back.addEventListener("click", ()=>{
+            scrolling.style.scrollBehavior = "smooth";
+            scrolling.scrollLeft -= 900;
+        });
+
+    </script>
+</body>
+</html>
